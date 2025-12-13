@@ -1,7 +1,5 @@
 "use client";
-
 import { useState } from "react";
-
 import Hero from "./home/page";
 import Navbar from "../../components/custom/navbar/page";
 import AboutPage from "./about/page";

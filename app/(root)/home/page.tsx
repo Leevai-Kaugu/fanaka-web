@@ -1,6 +1,8 @@
+"use client"
+import { useState } from "react";
 import ButtonTwo from "@/components/ui/buttonTwo/page";
 import MainButton from "@/components/ui/mainButton/page";
-import { useState } from "react";
+
 
 export default function Hero() {
 

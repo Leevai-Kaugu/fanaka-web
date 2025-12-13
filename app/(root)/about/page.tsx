@@ -104,7 +104,9 @@ export default function AboutPage({ country }: { country: string }) {
     },
   };
 
-  const selected = content[country as keyof typeof content];
+  const safeCountry = country || "Zambia"; // fallback to uganda if country is undefined
+  const selected = content[safeCountry as keyof typeof content];
+
 
   return (
     <main className="min-h-screen w-full text-gray-800">
@@ -113,7 +115,7 @@ export default function AboutPage({ country }: { country: string }) {
       <section className="w-full py-20">
         <div className="container mx-auto px-6 text-center">
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-gray-600">
-            {selected.header}
+            {selected?.header}
           </p>
         </div>
       </section>
@@ -136,7 +138,7 @@ export default function AboutPage({ country }: { country: string }) {
               viewport={{ once: false, amount: 0.3 }}
               className="text-gray-600 leading-relaxed mb-6 space-y-4"
             >
-              {selected.body()}
+              {selected?.body()}
             </motion.div>
 
             <button className="bg-green-600 text-white px-5 py-2 rounded-full hover:bg-green-700 transition">
