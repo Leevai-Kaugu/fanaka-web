@@ -11,8 +11,6 @@ type PartnerApplicationFormProps = {
 
 
 export default function PartnerApplicationForm({ onInteract, onSubmit }: PartnerApplicationFormProps) {
-  const [isHovered, setIsHovered] = useState(false);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [showModal, setShowModal] = useState(false);
 
   const [form, setForm] = useState({
@@ -117,10 +115,6 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
       errors[field] ? 'border-red-500' : 'border-fg focus:border-fp'
     }`;
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    setCoords({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-  };
 
   const handleModalClose = () => {
     setShowModal(false);
@@ -208,23 +202,16 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
           )}
         </div>
 
-        <MainButton text="GET STARTED" href="/signup" />
+        <MainButton text="GET STARTED" 
+        onClick={(e) => {
+          e.preventDefault(); // prevent default link behavior
+          handleSubmit();     // submit the form
+        }} />
 
         <SuccessModal isOpen={showModal} onClose={handleModalClose} />
       </form>
 
-      {/* Autofill Fix Styles */}
-      <style jsx>{`
-        input:-webkit-autofill,
-        input:-webkit-autofill:hover,
-        input:-webkit-autofill:focus,
-        input:-webkit-autofill:active {
-          transition: background-color 9999s ease-in-out 0s;
-          -webkit-text-fill-color: #000 !important;
-          box-shadow: 0 0 0px 1000px white inset !important;
-          background-color: white !important;
-        }
-      `}</style>
+
     </>
   );
 }

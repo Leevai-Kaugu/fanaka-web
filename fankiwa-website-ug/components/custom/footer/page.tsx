@@ -6,6 +6,8 @@ import {
     FaLinkedin,
   } from 'react-icons/fa';
 import { BsThreadsFill } from "react-icons/bs";
+import ContactButton from "../contact/page";
+import ContactModal from "../contactModal/page";
 
 
 export default function Footer() {
@@ -23,8 +25,8 @@ export default function Footer() {
           <span> Download our Mobile App </span>
         </div>
 
-        <Link href="#" className="flex items-center gap-2 hover:text-black">
-          <img src="/kula-app-logo-01.png" className="w-6 h-6" alt="Kula app" />
+        <Link href="https://kula-dev.fanakatech.com/api/v1/apk/download/fanaka-kula" className="flex items-center gap-2 hover:text-black">
+          <img src="/kula-app-logo-01.png" className="w-10 h-10" alt="Kula app" />
           <span>Kula</span>
         </Link>
 
@@ -44,10 +46,9 @@ export default function Footer() {
           <Link href="#"><BsThreadsFill className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
         </div>
 
-        {/* Adobe Logo */}
+
         <div className="flex flex-col items-center gap-2">
-          <img src="/Zanga.png" className="w-10" alt="Fanikiwa" />
-          <span className="font-semibold">Fanikiwa</span>
+          <ContactButton />
         </div>
       </div>
 

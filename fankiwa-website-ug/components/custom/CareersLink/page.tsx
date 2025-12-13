@@ -3,16 +3,49 @@ import MainButton from "@/components/ui/careerButton/page";
 
 export default function InstructorInviteCard() {
   return (
-    <div className="w-full flex justify-center px-4 py-10">
-      <div className="relative group max-w-5xl w-full bg-[#E9F8EE] rounded-xl p-8 md:p-12 flex items-center justify-between">
+    <div className="w-full flex justify-center  py-10">
+      <div className="relative group w-full bg-[#E9F8EE] rounded-xl p-8 md:p-12 flex items-center justify-between">
 
         {/* Left Side Text */}
         <div>
           <p className="text-sm text-gray-700 font-medium">Become A Field Entrepreneur</p>
 
-          <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-gray-900 leading-snug">
+          <h2 className="mt-2 text-2xl md:text-3xl font-semibold text-gray-900 leading-snug relative w-fit">
             You can join our team <br />
-            as <span className="text-green-700 underline underline-offset-4">a Field Entrepreneur</span>
+            as{" "}
+            <span className="relative inline-block text-green-700">
+             a Field Entrepreneur
+
+            {/* Hand-Drawn Double Underline */}
+            <svg
+              className="absolute left-20 bottom-[-70px] w-full"
+              height="80"
+              viewBox="0 0 20 responsive"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {/* Line 1 – sketchy curve */}
+              <path
+                d="M5 20 C60 5, 140 35, 195 15"
+                stroke="#2E7D32"
+                strokeWidth="3.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.9"
+              />
+
+              {/* Line 2 – second imperfect hand stroke */}
+              <path
+                d="M8 30 C70 18, 130 45, 192 25"
+                stroke="#2E7D32"
+                strokeWidth="2.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                opacity="0.75"
+              />
+            </svg>
+          </span>
+
           </h2>
         </div>
 
@@ -42,9 +75,9 @@ export default function InstructorInviteCard() {
         </div>
 
         {/* Button */}
-        <MainButton text="Join Us" href="#" />
+        <MainButton text="Join Us" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdmEzSXs5hLh4GMGvGQMGOr6UMDgrejjSPkdexq0-Zn7WiOyw/viewform?usp=header" />
 
-        {/* Decorative dots (optional) */}
+        {/* Decorative dots */}
         <div className="absolute left-3 top-3 flex gap-1">
           <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
           <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>

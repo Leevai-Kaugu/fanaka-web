@@ -5,9 +5,10 @@ import Link from "next/link";
 interface MainButtonProps {
   text: string;
   href: string;
+  target?: string; // added
 }
 
-export default function MainButton({ text, href }: MainButtonProps) {
+export default function MainButton({ text, href, target }: MainButtonProps) {
   const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -19,7 +20,7 @@ export default function MainButton({ text, href }: MainButtonProps) {
   };
 
   return (
-    <Link href={href} className="relative inline-block">
+    <Link href={href} target={target} className="relative inline-block">
       <button
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
