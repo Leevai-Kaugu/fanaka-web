@@ -75,18 +75,18 @@ export default function Partners() {
     >
 
       {/* 🔥 BACKGROUND IMAGE (Behind Everything) */}
-      <div className="absolute inset-0 -z-10">
+      {/* <div className="absolute inset-0 -z-10">
         <img
           src="/zambia dotted-01.png"
           alt="partners background"
           className="w-full h-full object-cover"
         />
-      </div>
+      </div> */}
 
-      <div className="relative w-full flex">
+      <div className="relative w-full lg:flex justify-center items-center px-4">
         {!showForm && (
-          <div className="container mx-auto px-6 pt-16 pb-10">
-            <h1 className="lg:text-[2vw] md:text-[3vw] text-[4.5vw] text-fanakaPrimary">
+          <div className="container mx-auto md:px-6">
+            <h1 className="md:text-4xl text-2xl text-primaryD font-semibold mb-6 text-center">
               Value Proposition for Key Stakeholders
             </h1>
 
@@ -99,7 +99,7 @@ export default function Partners() {
               gaining potential returns on investment.
             </p>
 
-            <div className="flex justify-center mt-8">
+            <div className="flex justify-center mt-8 pb-10">
               <FloatingButton
                 text="Become a Partner"
                 href="#"

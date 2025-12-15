@@ -11,7 +11,7 @@ export default function Career(): JSX.Element {
 
           {/* Heading Section */}
           <div className="flex flex-col items-center justify-center mt-[5vh] md:mt-[5vh] text-center px-4">
-            <h1 className="text-[7vw] md:text-[3vw] text-fp font-bold">CAREERS</h1>
+            <h1 className="text-2xl text-fp font-bold">CAREERS</h1>
             <p className="text-pg mt-2 md:w-[40%] w-full text-gray-600">
               Grow With Us ~ Discover opportunities to build something amazing, challenging, inspiring, and rewarding.
             </p>

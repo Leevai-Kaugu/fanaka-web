@@ -36,10 +36,10 @@ export default function Footer() {
       <div className="w-full border-t mb-6"></div>
 
       {/* Region + Socials + Logo */}
-      <div className="flex flex-wrap justify-between items-center px-4 max-w-7xl mx-auto">
+      <div className="flex flex-col-reverse lg:flex-row flex-wrap lg:justify-between justify-center items-center px-4 max-w-7xl mx-auto">
 
         {/* Social Icons */}
-        <div className="flex items-center gap-4 mb-4 md:mb-0">
+        <div className="flex items-center justify-center gap-4 mb-4 md:mb-0">
           <Link href="#"><FaLinkedin className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
           <Link href="#"><FaFacebook className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
           <Link href="#"><FaInstagram className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
 
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 mb-6 md:mb-0">
           <ContactButton />
         </div>
       </div>

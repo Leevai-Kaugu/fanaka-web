@@ -24,7 +24,7 @@ export default function ButtonTwo({ text, href }: ButtonTwoProps) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-        className="relative overflow-hidden my-[20px] py-[10px] px-[40px] text-foreground cursor-pointer hover:text-background transition border border-foreground  hover:bg-fanakaPrimaryD"
+        className="relative overflow-hidden mb-[20px] lg:mb-0 lg:my-[20px] mx-5 py-[10px] px-[40px] text-foreground cursor-pointer hover:text-background transition border border-foreground  hover:bg-fanakaPrimaryD"
       >
         <span
           className="absolute w-40 h-40 rounded-full bg-foreground opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-800 z-0 ease-in"

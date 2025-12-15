@@ -1,12 +1,9 @@
-"use client"
-import { useState } from "react";
 import ButtonTwo from "@/components/ui/buttonTwo/page";
 import MainButton from "@/components/ui/mainButton/page";
 
-
 export default function Hero() {
 
-  const [country, setCountry] = useState<string>("uganda"); // default country
+  
   return (
     <section className="relative bg-background w-full min-h-screen flex items-center justify-center">
       {/* Background Image */}
@@ -15,6 +12,8 @@ export default function Hero() {
           src="/front-view-woman-carrying-harvest.jpg"
           alt="Hero background"
           className="w-full h-full object-cover filter blur-[3px]"
+          width={800}
+          height={500}
         />
       </div>
 
@@ -29,7 +28,7 @@ export default function Hero() {
           designed for entrepreneurs and SMEs.
         </p>
 
-        <div className="mt-10 flex justify-center gap-4">
+        <div className="mt-10 lg:flex justify-center gap-4">
           <MainButton text="GET STARTED" href="/signup" />
           <ButtonTwo text="LEARN MORE" href="/learn-more" />
         </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { FaPhoneAlt, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
@@ -10,70 +10,88 @@ interface ContactModalProps {
 
 export default function ContactModal({ onClose }: ContactModalProps) {
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50">
-      {/* Click outside closes modal */}
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm px-3 overflow-hidden">
+      {/* Backdrop */}
+      <div className="absolute inset-0" onClick={onClose} />
+
+      {/* Modal */}
       <div
-        className="absolute inset-0"
-        onClick={onClose}
-      />
+        className="
+          relative z-10
+          w-full
+          max-w-[calc(100vw-1.5rem)] sm:max-w-4xl
+          h-[90vh]
+          bg-flp rounded-xl shadow-2xl
+          p-4 sm:p-6 md:p-8
+          overflow-hidden
+          box-border
+        "
+      >
+        {/* Close */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-white text-xl"
+        >
+          ✕
+        </button>
 
-      {/* Modal content */}
-      <div className="relative z-10 flex max-w-4xl bg-flp md:w-[80%] h-fit p-10" style={{ boxShadow: "0 8px 50px rgba(0,0,0,0.2)" }}>
-        <div className="flex md:flex-row flex-col w-full justify-around items-center">
-          <div className="md:w-[40%] w-full md:text-start text-center">
-            <h1 className="text-fp text-[7vw] md:text-[2vw] font-bold">Contact</h1>
-            <p className="text-white">Have a question about how we might help you? Give us a call or visit our offices</p>
+        {/* Content */}
+        <div className="flex h-full flex-col md:flex-row gap-6 min-h-0">
+          {/* Left */}
+          <div className="w-full md:w-[45%] text-center md:text-left flex-shrink-0">
+            <h1 className="text-fp text-2xl sm:text-3xl font-bold">
+              Contact
+            </h1>
 
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-2 w-full">
+            <p className="mt-1 text-white text-sm leading-snug">
+              Have a question? Give us a call or visit our offices.
+            </p>
+
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
               <div>
-                <div className="flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center">
-                  <FaPhoneAlt className="fill-fp" />
-                  <p>Contact</p>
+                <div className="flex items-center gap-2 text-fp justify-center md:justify-start">
+                  <FaPhoneAlt />
+                  <span className="font-medium">Contact</span>
                 </div>
-                <p className="text-white">+260 776478984</p>
+                <p className="text-white">+260 776 478 984</p>
               </div>
 
               <div>
-                <div className="flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center">
-                  <FaClock className="fill-fp" />
-                  <p>Working Hours</p>
+                <div className="flex items-center gap-2 text-fp justify-center md:justify-start">
+                  <FaClock />
+                  <span className="font-medium">Hours</span>
                 </div>
-                <p className="text-white">8:am - 5:pm, Mon - Sat</p>
+                <p className="text-white">8am – 5pm</p>
               </div>
 
-              <div>
-                <div className="flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center">
-                  <FaLocationDot className="fill-fp" />
-                  <p>Location</p>
+              <div className="sm:col-span-2">
+                <div className="flex items-center gap-2 text-fp justify-center md:justify-start">
+                  <FaLocationDot />
+                  <span className="font-medium">Location</span>
                 </div>
-                <p className="text-white">
-                  Office 904, 9th Floor, Sunshare Tower, Stand No. LN_15584/1, Katima Mulilo Road, Lusaka, Zambia
+                <p className="text-white text-xs leading-snug break-words">
+                  Office 904, 9th Floor, Sunshare Tower, Katima Mulilo Road, Lusaka
                 </p>
               </div>
 
               <div>
-                <div className="flex gap-3 items-center mt-[5vh] text-fp md:justify-start justify-center">
-                  <IoIosMail className="fill-fp size-[1.4em]" />
-                  <p>Mail</p>
+                <div className="flex items-center gap-2 text-fp justify-center md:justify-start">
+                  <IoIosMail />
+                  <span className="font-medium">Mail</span>
                 </div>
-                <p className="text-white">info@fanakatech.com</p>
+                <p className="text-white break-all text-xs">
+                  info@fanakatech.com
+                </p>
               </div>
             </div>
           </div>
 
-          <div className="md:w-[40%] w-full mt-[5vh] md:mt-0">
+          {/* Right (Form) */}
+          <div className="w-full md:w-[55%] flex-grow min-h-0">
             <MessageForm />
           </div>
         </div>
       </div>
-
-      {/* Close button */}
-      <button
-        onClick={onClose}
-        className="absolute top-6 right-6 text-white text-2xl"
-      >
-        ✕
-      </button>
     </div>
   );
 }

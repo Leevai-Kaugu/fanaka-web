@@ -3,6 +3,7 @@ import { motion, Variants } from "framer-motion";
 import Image from "next/image";
 import FeaturesSection from "@/components/custom/techStack/page";
 
+
 // ======================
 // Animation Variants
 // ======================
@@ -150,7 +151,7 @@ export default function AboutPage({ country }: { country: string }) {
           {country === "uganda" ? (
             <div 
               key="uganda-block" 
-              className="flex items-center justify-center gap-4"
+              className="flex items-center justify-center w-full md:gap-4"
             >
               <motion.div
                 className="flex items-center justify-center gap-4"
@@ -165,7 +166,7 @@ export default function AboutPage({ country }: { country: string }) {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, amount: 0.3 }}
-                  className="w-38 h-54 rounded-3xl overflow-hidden shadow-md"
+                  className="lg:w-38 h-54 rounded-3xl overflow-hidden shadow-md"
                 >
                   <Image
                     src="/portrait-smiling-woman-sell-food-market-kingston-jamaica.jpg"
@@ -183,7 +184,7 @@ export default function AboutPage({ country }: { country: string }) {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, amount: 0.3 }}
-                  className="w-42 h-62 rounded-3xl overflow-hidden shadow-lg"
+                  className="lg:w-42 h-62 rounded-3xl overflow-hidden shadow-lg"
                 >
                   <Image
                     src="/black-people-tablet-farm-with-chicken-agriculture-together-live-stock-outdoor-crops-happy-men-working-together-farming-sustainability-growth-supply-chain-countryside.jpg"
@@ -201,7 +202,7 @@ export default function AboutPage({ country }: { country: string }) {
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: false, amount: 0.3 }}
-                  className="w-38 h-54 rounded-3xl overflow-hidden shadow-md"
+                  className="lg:w-38 h-54 rounded-3xl overflow-hidden shadow-md"
                 >
                   <Image
                     src="/backgrounds-market-woman.jpg"
@@ -258,7 +259,7 @@ export default function AboutPage({ country }: { country: string }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.3 }}
-                className="absolute left-[25%] bottom-[10%] w-[120px] h-[120px] rounded-full overflow-hidden shadow-lg z-20"
+                className="absolute lg:left-[25%] left-[5%] bottom-[10%] w-[120px] h-[120px] rounded-full overflow-hidden shadow-lg z-20"
               >
                 <Image
                   src="/medium-shot-woman-posing-market.jpg"
@@ -275,7 +276,7 @@ export default function AboutPage({ country }: { country: string }) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.3 }}
-                className="absolute right-[25%] bottom-[15%] w-[130px] h-[130px] rounded-full overflow-hidden shadow-lg z-20"
+                className="absolute lg:right-[25%] right-[5%] bottom-[15%] w-[130px] h-[130px] rounded-full overflow-hidden shadow-lg z-20"
               >
                 <Image
                   src="/freepik__talk__8769.jpeg"
