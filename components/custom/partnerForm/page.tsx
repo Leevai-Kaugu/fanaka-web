@@ -111,8 +111,8 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
   };
 
   const inputClass = (field: keyof typeof form) =>
-    `w-full border-b-2 px-2 py-2 h-11 bg-white focus:bg-green-100 outline-none transition-all duration-300 ${
-      errors[field] ? 'border-red-500' : 'border-fg focus:border-fp'
+    `w-full border-b-2 px-2 py-2 h-11 bg-flp  outline-none transition-all duration-300 ${
+      errors[field] ? 'border-red-500' : 'border-fp focus:border-gray-700'
     }`;
 
 
@@ -128,16 +128,16 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
           e.preventDefault();
           handleSubmit();
         }}
-        className="lg:mx-0 mx-auto bg-white p-6 rounded-md shadow-md"
+        className="lg:mx-0 mx-auto p-6 rounded-md "
       >
-        <h2 className="text-2xl font-bold text-fp mb-1">Become a partner</h2>
+        <h2 className="text-2xl font-bold text-fanakaPrimary mb-1">Become a partner</h2>
         <p className="text-sm text-fg mb-6">Want to become a debt partner? Fill the form below and we’ll get in touch!</p>
 
         {[{ label: 'Your Name or Organisation*', name: 'name', type: 'text' },
           { label: 'Email*', name: 'email', type: 'email' },
           { label: 'Phone number*', name: 'phoneNumber', type: 'tel' }].map((field) => (
           <div className="mb-4" key={field.name}>
-            <label className="block text-sm font-medium text-fg mb-1">{field.label}</label>
+            <label className="block text-sm text-fg mb-1">{field.label}</label>
             <input
               onClick={onInteract}          // 🔥 new event
               onChange={(e) => {
@@ -155,7 +155,7 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
         ))}
 
         <div className="mb-4 relative">
-          <label className="block text-sm font-medium text-fg mb-1">
+          <label className="block text-sm text-fg mb-1">
             Potential percent return per annum expectation*
           </label>
           <div className="relative">
@@ -176,7 +176,7 @@ export default function PartnerApplicationForm({ onInteract, onSubmit }: Partner
         </div>
 
         <div className="mb-6">
-          <label className="block text-sm font-medium text-fg mb-1">
+          <label className="block text-sm text-fg mb-1">
             How much are you lending as debt (USD)*
           </label>
           <input

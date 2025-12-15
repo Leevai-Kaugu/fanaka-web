@@ -26,7 +26,7 @@ export default function Page() {
         <Hero  />
       </Section>
 
-      <div className="w-full flex justify-center py-2 relative bottom-60 ">
+      <div className="w-full flex justify-center py-2 relative lg:bottom-60 bottom-40">
         <CountrySelectorDropdown onSelect={setCountry} />
       </div>
 

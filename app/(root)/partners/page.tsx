@@ -71,7 +71,7 @@ export default function Partners() {
       variants={contentVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="relative w-full min-h-screen flex items-center"
+      className="relative w-full min-h-screen flex items-center bg-flp"
     >
 
       {/* 🔥 BACKGROUND IMAGE (Behind Everything) */}
@@ -83,14 +83,14 @@ export default function Partners() {
         />
       </div> */}
 
-      <div className="relative w-full lg:flex justify-center items-center px-4">
+      <div className="relative w-full lg:flex justify-center items-center px-4 ">
         {!showForm && (
           <div className="container mx-auto md:px-6">
             <h1 className="md:text-4xl text-2xl text-primaryD font-semibold mb-6 text-center">
               Value Proposition for Key Stakeholders
             </h1>
 
-            <p className="text-gray-600">
+            <p className="text-gray-800">
               For our MSME clients, Fanaka offers a pathway to financial
               empowerment through education, tailored financial products,
               and risk management solutions. Our stakeholders, including
@@ -110,8 +110,8 @@ export default function Partners() {
         )}
 
         {showForm && (
-          <div className="container mx-auto pt-16 px-20 pb-10">
-            <div className="bg-white p-6 rounded-xl shadow-lg">
+          <div className="container mx-auto pt-16 md:px-20 pb-10">
+            <div className="bg-flp p-6 rounded-xl shadow-lg">
               <PartnerApplicationForm
                 onInteract={handleFormInteraction}
                 onSubmit={handleFormSubmit}
