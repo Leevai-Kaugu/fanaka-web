@@ -1,8 +1,10 @@
 'use client';
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, Variants, useInView } from "framer-motion";
-import FloatingButton from "@/components/ui/floatingButton/page";
-import PartnerApplicationForm from "@/components/custom/partnerForm/page";
+import dynamic from "next/dynamic";
+
+const FloatingButton = dynamic(() => import("@/components/ui/floatingButton/page"));
+const PartnerApplicationForm = dynamic(() => import("@/components/custom/partnerForm/page"));
 
 export default function Partners() {
   const logos = [
@@ -23,27 +25,45 @@ export default function Partners() {
     "#F5FFFF",
   ];
 
-  const fixedPositions = [
-    { top: 18, left: 35, size: 175 },
+  const positionsMd = [
+    { top: 5, left: 10, size: 130 },
+    { top: 5, left: 55, size: 130 },
+    { top: 35, left: 10, size: 130 },
+    { top: 35, left: 55, size: 130 },
+    { top: 65, left: 10, size: 130 },
+    { top: 65, left: 55, size: 130 },
+  ];
+
+  const positionsLg = [
+    { top: 18, left: 15, size: 175 },
     { top: 12, left: 55, size: 115 },
-    { top: 45, left: 47, size: 140 },
-    { top: 40, left: 67, size: 150 },
-    { top: 68, left: 34, size: 120 },
-    { top: 65, left: 59, size: 115 },
+    { top: 40, left: 40, size: 140 },
+    { top: 30, left: 70, size: 180 },
+    { top: 65, left: 57, size: 150 },
+    { top: 72, left: 27 , size: 120 },
+    { top: 69, left: 55, size: 145 },
   ];
 
   const [showForm, setShowForm] = useState(false);
   const [formInteracted, setFormInteracted] = useState(false);
   const [revertTimer, setRevertTimer] = useState<NodeJS.Timeout | null>(null);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const fixedPositions = windowWidth >= 1024 ? positionsLg : positionsMd;
 
   const handleOpenForm = () => {
     setShowForm(true);
     setFormInteracted(false);
-
     const timer = setTimeout(() => {
       if (!formInteracted) setShowForm(false);
     }, 7007);
-
     setRevertTimer(timer);
   };
 
@@ -57,40 +77,52 @@ export default function Partners() {
     setFormInteracted(false);
   };
 
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { margin: '-20% 0px -20% 0px' });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: '-20% 0px -20% 0px' });
 
-  const contentVariants: Variants = {
+  const textRef = useRef<HTMLDivElement>(null);
+  const isTextInView = useInView(textRef, { margin: '-20% 0px -20% 0px' });
+
+  const textVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeInOut' } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const logosContainerVariants: Variants = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const logoVariants: Variants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { type: "spring", stiffness: 120, damping: 12 },
+    },
   };
 
   return (
-    <motion.div
-      ref={ref}
-      variants={contentVariants}
-      initial="hidden"
-      animate={isInView ? "visible" : "hidden"}
-      className="relative w-full min-h-screen flex items-center bg-flp"
-    >
-
-      {/* 🔥 BACKGROUND IMAGE (Behind Everything) */}
-      {/* <div className="absolute inset-0 -z-10">
-        <img
-          src="/zambia dotted-01.png"
-          alt="partners background"
-          className="w-full h-full object-cover"
-        />
-      </div> */}
-
-      <div className="relative w-full lg:flex justify-center items-center px-4 ">
+    <div className="relative w-full min-h-screen flex items-center bg-flp">
+      <div className="relative w-full lg:flex justify-center items-center px-4 pt-10 ">
         {!showForm && (
-          <div className="container mx-auto md:px-6">
-            <h1 className="md:text-4xl text-2xl text-primaryD font-semibold mb-6 text-center">
+          <motion.div
+            ref={textRef}
+            variants={textVariants}
+            initial="hidden"
+            animate={isTextInView ? "visible" : "hidden"}
+            className="container mx-auto md:px-6"
+          >
+            <h1 className="md:text-4xl text-2xl text-primaryD font-semibold mb-6 text-center md:text-left">
               Value Proposition for Key Stakeholders
             </h1>
-
-            <p className="text-gray-800">
+            <p className="text-gray-800 text-center md:text-left">
               For our MSME clients, Fanaka offers a pathway to financial
               empowerment through education, tailored financial products,
               and risk management solutions. Our stakeholders, including
@@ -98,7 +130,6 @@ export default function Partners() {
               scalable impact, driving sustainable economic development and
               gaining potential returns on investment.
             </p>
-
             <div className="flex justify-center mt-8 pb-10">
               <FloatingButton
                 text="Become a Partner"
@@ -106,7 +137,7 @@ export default function Partners() {
                 onClick={handleOpenForm}
               />
             </div>
-          </div>
+          </motion.div>
         )}
 
         {showForm && (
@@ -120,13 +151,17 @@ export default function Partners() {
           </div>
         )}
 
-        {/* LOGOS */}
-        <div className="relative w-full h-[500px] overflow-hidden">
+        <motion.div
+          ref={containerRef}
+          className="relative w-full h-[500px] overflow-hidden"
+          variants={logosContainerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {logos.map((src, i) => {
             const pos = fixedPositions[i];
-
             return (
-              <div
+              <motion.div
                 key={i}
                 className="absolute flex items-center justify-center rounded-full shadow-lg p-4"
                 style={{
@@ -137,18 +172,14 @@ export default function Partners() {
                   transform: "translate(-50%, -50%)",
                   backgroundColor: bgColors[i],
                 }}
+                variants={logoVariants}
               >
-                <img
-                  src={src}
-                  alt="logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+                <img src={src} alt="logo" className="w-full h-full object-contain" />
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
-
-    </motion.div>
+    </div>
   );
 }

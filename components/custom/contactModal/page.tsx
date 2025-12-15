@@ -16,11 +16,12 @@ export default function ContactModal({ onClose }: ContactModalProps) {
 
       {/* Modal */}
       <div
-        className="
+        className=" 
+          bg-flp p-10 flex
           relative z-10
           w-full
-          max-w-[calc(100vw-1.5rem)] sm:max-w-4xl
-          h-[90vh]
+          max-w-[calc(100vw-1.5rem)] md:w-[80%]
+          h-[90vh] lg:h-fit
           bg-flp rounded-xl shadow-2xl
           p-4 sm:p-6 md:p-8
           overflow-hidden
@@ -36,18 +37,18 @@ export default function ContactModal({ onClose }: ContactModalProps) {
         </button>
 
         {/* Content */}
-        <div className="flex h-full flex-col md:flex-row gap-6 min-h-0">
+        <div className="flex h-full md:w-full flex-col md:flex-row gap-6 min-h-0">
           {/* Left */}
           <div className="w-full md:w-[45%] text-center md:text-left flex-shrink-0">
-            <h1 className="text-fp text-2xl sm:text-3xl font-bold">
+            <h1 className="text-fp text-2xl md:text-5xl font-bold">
               Contact
             </h1>
 
-            <p className="mt-1 text-white text-sm leading-snug">
+            <p className="mt-1 text-white text-sm leading-snug md:text-lg">
               Have a question? Give us a call or visit our offices.
             </p>
 
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-lg">
               <div>
                 <div className="flex items-center gap-2 text-fp justify-center md:justify-start">
                   <FaPhoneAlt />
@@ -69,7 +70,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                   <FaLocationDot />
                   <span className="font-medium">Location</span>
                 </div>
-                <p className="text-white text-xs leading-snug break-words">
+                <p className="text-white text-xs md:text-lg leading-snug break-words">
                   Office 904, 9th Floor, Sunshare Tower, Katima Mulilo Road, Lusaka
                 </p>
               </div>
@@ -79,7 +80,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
                   <IoIosMail />
                   <span className="font-medium">Mail</span>
                 </div>
-                <p className="text-white break-all text-xs">
+                <p className="text-white break-all text-xs md:text-lg">
                   info@fanakatech.com
                 </p>
               </div>
