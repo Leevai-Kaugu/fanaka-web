@@ -40,13 +40,13 @@ export default function Partners() {
     { top: 40, left: 40, size: 140 },
     { top: 30, left: 70, size: 180 },
     { top: 65, left: 57, size: 150 },
-    { top: 72, left: 27 , size: 120 },
+    { top: 72, left: 27, size: 120 },
     { top: 69, left: 55, size: 145 },
   ];
 
   const [showForm, setShowForm] = useState(false);
   const [formInteracted, setFormInteracted] = useState(false);
-  const [revertTimer, setRevertTimer] = useState<NodeJS.Timeout | null>(null);
+  const [revertTimer, setRevertTimer] = useState<number | null>(null);
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   useEffect(() => {
@@ -61,9 +61,11 @@ export default function Partners() {
   const handleOpenForm = () => {
     setShowForm(true);
     setFormInteracted(false);
-    const timer = setTimeout(() => {
+
+    const timer = window.setTimeout(() => {
       if (!formInteracted) setShowForm(false);
     }, 7007);
+
     setRevertTimer(timer);
   };
 
@@ -77,11 +79,22 @@ export default function Partners() {
     setFormInteracted(false);
   };
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { margin: '-20% 0px -20% 0px' });
+  /** 👇 background reveal trigger */
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const isSectionInView = useInView(sectionRef, {
+    margin: "-20% 0px -20% 0px",
+  });
+
+  const bgVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   const textRef = useRef<HTMLDivElement>(null);
-  const isTextInView = useInView(textRef, { margin: '-20% 0px -20% 0px' });
+  const isTextInView = useInView(textRef, { margin: "-20% 0px -20% 0px" });
 
   const textVariants: Variants = {
     hidden: { opacity: 0, y: 40 },
@@ -94,9 +107,7 @@ export default function Partners() {
 
   const logosContainerVariants: Variants = {
     hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.1 },
-    },
+    visible: { transition: { staggerChildren: 0.1 } },
   };
 
   const logoVariants: Variants = {
@@ -109,8 +120,14 @@ export default function Partners() {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center bg-flp">
-      <div className="relative w-full lg:flex justify-center items-center px-4 pt-10 ">
+    <motion.div
+      ref={sectionRef}
+      className="relative w-full min-h-screen flex items-center bg-flp"
+      variants={bgVariants}
+      initial="hidden"
+      animate={isSectionInView ? "visible" : "hidden"}
+    >
+      <div className="relative w-full lg:flex justify-center items-center px-4 pt-10">
         {!showForm && (
           <motion.div
             ref={textRef}
@@ -152,11 +169,10 @@ export default function Partners() {
         )}
 
         <motion.div
-          ref={containerRef}
           className="relative w-full h-[500px] overflow-hidden"
           variants={logosContainerVariants}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          animate={isSectionInView ? "visible" : "hidden"}
         >
           {logos.map((src, i) => {
             const pos = fixedPositions[i];
@@ -174,12 +190,16 @@ export default function Partners() {
                 }}
                 variants={logoVariants}
               >
-                <img src={src} alt="logo" className="w-full h-full object-contain" />
+                <img
+                  src={src}
+                  alt="logo"
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
             );
           })}
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

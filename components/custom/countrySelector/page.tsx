@@ -30,7 +30,7 @@ export default function CountrySelectorDropdown({ onSelect }: Props) {
     <div className="relative inline-block">
       {/* Custom "Change region" div as the button */}
       <div
-        className="flex items-center gap-2 cursor-pointer text-foreground"
+        className="flex items-center gap-2 cursor-pointer text-background dark:text-foreground"
         onClick={() => setOpen(!open)}
       >
         <TbWorld className="w-5 h-5" />

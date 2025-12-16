@@ -40,10 +40,10 @@ export default function Footer() {
 
         {/* Social Icons */}
         <div className="flex items-center justify-center gap-4 mb-4 md:mb-0">
-          <Link href="#"><FaLinkedin className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="#"><FaFacebook className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="#"><FaInstagram className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="#"><BsThreadsFill className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.linkedin.com/company/fanakatechnologies/" target="/"><FaLinkedin className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.facebook.com/share/1BkdJ7AZ8v/" target="/"><FaFacebook className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.instagram.com/fanaka_tech?igsh=OTB2YjZ4MjFtOW95" target="/"><FaInstagram className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.threads.com/@fanaka_tech" target="/"><BsThreadsFill className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
         </div>
 
 

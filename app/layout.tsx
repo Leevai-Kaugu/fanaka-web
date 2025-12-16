@@ -19,8 +19,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Fanikiwa.com",
-  description: "Fanikiwa Website, Financial inclusion in Uganda",
+  title: "Fanaka",
+  description: "Fanaka Website, Financial inclusion in Africa",
 };
 
 export default function RootLayout({

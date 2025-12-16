@@ -5,7 +5,7 @@ import React, { JSX } from 'react';
 
 export default function Career(): JSX.Element {
   return (
-    <div>
+    <div className='bg-background w-full dark:bg-foreground'>
       <div className="relative w-full min-h-screen flex items-center justify-center">
         <div className="flex flex-col w-full col-start-1 row-start-1 z-10">
 

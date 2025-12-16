@@ -15,7 +15,7 @@ export default function Page() {
   const [country, setCountry] = useState<string>("uganda"); // default country
 
   return (
-    <div className="relative">
+    <div className="relative bg-background dark:bg-foreground">
       {/* 🔽 Dropdown stays at the top of the page */}
      
 

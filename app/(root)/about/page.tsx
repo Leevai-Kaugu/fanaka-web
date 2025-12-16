@@ -110,7 +110,7 @@ export default function AboutPage({ country }: { country: string }) {
 
 
   return (
-    <main className="min-h-screen w-full text-gray-800">
+    <main className="min-h-screen w-full text-gray-800 bg-background dark:bg-foreground">
 
       {/* HEADER */}
       <section className="w-full py-20">
@@ -291,7 +291,7 @@ export default function AboutPage({ country }: { country: string }) {
         </div>
       </section>
 
-      <section className="w-full my-20 py-10">
+      <section className="w-full my-10 py-10">
         <FeaturesSection />
       </section>
 

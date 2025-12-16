@@ -37,7 +37,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-background w-full min-h-screen flex items-center justify-center">
+    <section className="relative bg-foreground dark:bg-background w-full min-h-screen flex items-center justify-center">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 opacity-80 overflow-hidden">
         <img
@@ -83,8 +83,8 @@ export default function Hero() {
           whileInView="visible"
           viewport={{ once: false }}
         >
-          <MainButton text="GET STARTED" href="/signup" />
-          <ButtonTwo text="LEARN MORE" href="/learn-more" />
+          <MainButton text="GET STARTED" href="#partners"/>
+          <ButtonTwo text="LEARN MORE" href="#about" />
         </motion.div>
       </div>
     </section>

@@ -9,6 +9,7 @@
   --primaryD: #2d772d;
   --fanakaSec: #349BD5;
   --secondary: #349BD5;
+  --fanakaUG: #eba611;
   --fanakaGrey: #1E1E1E;
   --fanakaLightPrimary: #92E281; 
 }
@@ -21,6 +22,7 @@
   --color-fanakaPrimary: var(--fanakaPrimary);
   --color-primary: var(--primary);
   --color-primaryD: var(--primaryD);
+  --color-fanakaUG: var(--fanakaUG);
   --color-fs: var(--fanakaSec);
   --color-sec: var(--secondary);
   --color-fg: var(--fanakaGrey);
