@@ -25,10 +25,10 @@ export default function MainButton({ text, href, target }: MainButtonProps) {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
-        className="relative overflow-hidden my-[20px] py-[10px] px-[40px] bg-fanakaPrimary text-foreground cursor-pointer hover:text-background transition rounded"
+        className="relative overflow-hidden my-[20px] py-[10px] px-[40px] bg-fanakaPrimary text-background dark:text-foreground cursor-pointer hover:text-foreground dark:hover:text-background transition rounded"
       >
         <span
-          className="absolute w-40 h-40 rounded-full bg-foreground opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-800 z-0 ease-in"
+          className="absolute w-40 h-40 rounded-full bg-background dark:bg-foreground opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-800 z-0 ease-in hover:shadow-xl dark:hover:shadow-xl"
           style={{
             left: coords.x,
             top: coords.y,

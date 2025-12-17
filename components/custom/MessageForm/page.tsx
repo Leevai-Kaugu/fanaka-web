@@ -55,11 +55,11 @@ export default function MessageForm() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <p className="text-fp uppercase font-bold text-center md:text-start md:text-[2vw] text-[5vw]">
+        <p className="text-fp uppercase font-bold text-center md:text-start md:text-4xl text-lg mb-4">
           Get in Touch
         </p>
 
-        <div className="flex flex-col gap-4 w-full h-full">
+        <div className="flex flex-col gap-4 w-full h-full text-sm md:text-base">
           {/* Name */}
           <label htmlFor="name" className="text-white">Name</label>
           <input
@@ -117,7 +117,7 @@ export default function MessageForm() {
           {/* Submit */}
           <button
             type="submit"
-            className="bg-fp text-white rounded-md p-2 hover:bg-white hover:text-fp transition-all duration-300"
+            className="bg-fp text-white rounded-md p-2 hover:bg-white hover:text-fp transition-all duration-300 mb-4 sm:mb-0"
           >
             Send Message
           </button>

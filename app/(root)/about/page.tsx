@@ -105,7 +105,7 @@ export default function AboutPage({ country }: { country: string }) {
     },
   };
 
-  const safeCountry = country || "Zambia"; // fallback to uganda if country is undefined
+  const safeCountry = country || "Zambia"; // fallback to Zambia if country is undefined
   const selected = content[safeCountry as keyof typeof content];
 
 

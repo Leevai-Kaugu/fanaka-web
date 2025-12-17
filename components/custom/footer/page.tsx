@@ -1,35 +1,34 @@
 import React from "react";
 import Link from "next/link";
-import {
-    FaFacebook,
-    FaInstagram,
-    FaLinkedin,
-  } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { BsThreadsFill } from "react-icons/bs";
 import ContactButton from "../contact/page";
-import ContactModal from "../contactModal/page";
 
+interface FooterProps {
+  country: string; // "Uganda" | "Zambia" | undefined
+}
 
-export default function Footer() {
+export default function Footer({ country }: FooterProps) {
+  const currentYear = new Date().getFullYear();
 
-    const currentYear = new Date().getFullYear();
+  // map full names to codes
+  const countryMap: Record<string, "UG" | "ZM"> = {
+    Uganda: "UG",
+    Zambia: "ZM"
+  };
+  const safeCountry: "UG" | "ZM" = countryMap[country] || "ZM";
 
   return (
     <footer className="bg-white text-gray-700 pt-6 pb-10 border-t">
-      {/* Top divider */}
-      {/* <div className="w-full border-t mb-6"></div> */}
-
       {/* Featured Products Row */}
       <div className="w-full flex flex-wrap justify-center gap-8 text-sm mb-6">
         <div className="flex items-center gap-2 font-semibold">
-          <span> Download our Mobile App </span>
+          <span>Download our Mobile App</span>
         </div>
-
         <Link href="https://kula-dev.fanakatech.com/api/v1/apk/download/fanaka-kula" className="flex items-center gap-2 hover:text-black">
           <img src="/kula-app-logo-01.png" className="w-10 h-10" alt="Kula app" />
           <span>Kula</span>
         </Link>
-
       </div>
 
       {/* Second divider */}
@@ -37,18 +36,17 @@ export default function Footer() {
 
       {/* Region + Socials + Logo */}
       <div className="flex flex-col-reverse lg:flex-row flex-wrap lg:justify-between justify-center items-center px-4 max-w-7xl mx-auto">
-
         {/* Social Icons */}
         <div className="flex items-center justify-center gap-4 mb-4 md:mb-0">
-          <Link href="https://www.linkedin.com/company/fanakatechnologies/" target="/"><FaLinkedin className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="https://www.facebook.com/share/1BkdJ7AZ8v/" target="/"><FaFacebook className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="https://www.instagram.com/fanaka_tech?igsh=OTB2YjZ4MjFtOW95" target="/"><FaInstagram className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
-          <Link href="https://www.threads.com/@fanaka_tech" target="/"><BsThreadsFill className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.linkedin.com/company/fanakatechnologies/" target="_blank"><FaLinkedin className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.facebook.com/share/1BkdJ7AZ8v/" target="_blank"><FaFacebook className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.instagram.com/fanaka_tech?igsh=OTB2YjZ4MjFtOW95" target="_blank"><FaInstagram className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
+          <Link href="https://www.threads.com/@fanaka_tech" target="_blank"><BsThreadsFill className="w-5 h-5 opacity-70 hover:opacity-100" /></Link>
         </div>
 
-
+        {/* Contact Button */}
         <div className="flex flex-col items-center gap-2 mb-6 md:mb-0">
-          <ContactButton />
+          <ContactButton country={safeCountry} />
         </div>
       </div>
 
@@ -58,7 +56,6 @@ export default function Footer() {
         <Link href="/" className="hover:text-black">Privacy</Link>
         <Link href="/" className="hover:text-black">Terms of Use</Link>
         <Link href="/" className="hover:text-black">Cookie preferences</Link>
-        {/* <Link href="/" className="hover:text-black">Do not sell my personal information</Link> */}
       </div>
     </footer>
   );

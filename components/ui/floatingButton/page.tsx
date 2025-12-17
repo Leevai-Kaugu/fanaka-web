@@ -26,7 +26,7 @@ export default function FloatingButton({ text, href, onClick }: FloatingButtonPr
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
         onClick={onClick}
-        className="relative overflow-hidden my-[20px] py-[10px] px-[40px] bg-fanakaPrimary text-foreground cursor-pointer hover:text-foreground hover:dark:text-background transition rounded-full shadow-xl"
+        className="relative overflow-hidden my-[20px] py-[10px] px-[40px] bg-fanakaPrimary text-background dark:text-foreground cursor-pointer hover:text-foreground hover:dark:text-background transition rounded-full shadow-xl"
       >
         <span
           className="absolute w-40 h-40 rounded-full bg-background dark:bg-foreground opacity-50 pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-800 z-0 ease-in"

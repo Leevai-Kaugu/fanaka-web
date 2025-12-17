@@ -44,7 +44,7 @@ export default function Page() {
       </Section>
 
       <div id="footer">
-        <Footer />
+        <Footer country={country} />
       </div>
     </div>
   );
