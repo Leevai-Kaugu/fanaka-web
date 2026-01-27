@@ -49,7 +49,7 @@ const FeaturesSection: React.FC = () => {
   return (
     <section className="w-full text-center py-10">
       <div className="mx-auto px-4">
-        <h5 className="text-fg text-sm font-semibold mb-2">Solution</h5>
+        <h5 className="bg-gradient-to-br from-[#e89d1f] to-[#e4e95d] bg-clip-text text-transparent text-xl font-semibold mb-2">Solution</h5>
         <h2 className="text-3xl sm:text-4xl font-bold text-fanakaPrimary mb-4">
           Our Awesome Tech Stack
         </h2>

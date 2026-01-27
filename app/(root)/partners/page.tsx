@@ -17,12 +17,12 @@ export default function Partners() {
   ];
 
   const bgColors = [
-    "#F5F8FF",
+    "#FFBF3C",
+    "#3C4F46",
     "#98de9aff",
-    "#F5FFF8",
-    "#FFFDF5",
-    "#a1a1a1ff",
-    "#F5FFFF",
+    "#FFBF3C",
+    "#00594E",
+    "#F5FFEF",
   ];
 
   const positionsMd = [
@@ -122,7 +122,7 @@ export default function Partners() {
   return (
     <motion.div
       ref={sectionRef}
-      className="relative w-full min-h-screen flex items-center bg-flp"
+      className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-[#9bd46a] to-[#0b3866]"
       variants={bgVariants}
       initial="hidden"
       animate={isSectionInView ? "visible" : "hidden"}

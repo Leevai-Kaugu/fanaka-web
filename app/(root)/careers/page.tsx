@@ -11,7 +11,7 @@ export default function Career(): JSX.Element {
 
           {/* Heading Section */}
           <div className="flex flex-col items-center justify-center mt-[5vh] md:mt-[5vh] text-center px-4">
-            <h1 className="text-2xl text-fp font-bold">CAREERS</h1>
+            <h1 className="text-4xl text-fp font-bold">CAREERS</h1>
             <p className="text-pg mt-2 md:w-[40%] w-full text-gray-600">
               Grow With Us ~ Discover opportunities to build something amazing, challenging, inspiring, and rewarding.
             </p>
@@ -40,9 +40,9 @@ export default function Career(): JSX.Element {
               ].map((item, i) => (
                 <div
                   key={i}
-                  className="py-5 px-6 bg-flp text-white rounded-lg shadow w-full md:w-[30%]"
+                  className="py-5 px-6 bg-gradient-to-tl from-[#9bd46a] to-[#0b3866] text-white rounded-lg shadow w-full md:w-[30%]"
                 >
-                  <h3 className="text-fp font-bold mb-4">{item.title}</h3>
+                  <h3 className="text-flp font-bold mb-4">{item.title}</h3>
                   <p>{item.description}</p>
                 </div>
               ))}
